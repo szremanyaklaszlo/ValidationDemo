@@ -1,4 +1,4 @@
-# Input/DTO validation demo in Kotlin
+# Input/DTO validation in Kotlin
 
 This demo shows a very clean, consice implementation of input/DTO validation in Kotlin.
 This is a native solution, doesn't require any dependency and completely free from annotations.
