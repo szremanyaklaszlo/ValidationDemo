@@ -5,6 +5,10 @@ This is a native solution, doesn’t require any dependencies, and is completely
 
 For testing, I use Kotest and Mockk.
 
+## Recommendations:
+- Use addIf() for one liners
+- Use add() for complex conditions
+
 ## Possible modifications for your needs:
 
 - ### Remove context.throwIfAny() from the validate function and return the ValidationContext <br>
