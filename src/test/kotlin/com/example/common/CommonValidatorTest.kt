@@ -12,21 +12,21 @@ class CommonValidatorTest : StringSpec() {
 
     init {
         """vPrice When price and currency is valid, should not add any error""" {
-            val validationContext = ValidationContext()
+            val validationContext = ValidationContext("Validation has been failed.")
             validationContext.vPrice(1000, Currency.EUR, allowedCurrencies)
 
             validationContext.errors shouldBe emptyList()
         }
 
         """When price is below 0, should add an error to the context""" {
-            val validationContext = ValidationContext()
+            val validationContext = ValidationContext("Validation has been failed.")
             validationContext.vPrice(-1, Currency.EUR, allowedCurrencies)
 
             validationContext.errors shouldContain "price cannot be less than 0"
         }
 
         """When currency type is not allowed, should add an error to the context""" {
-            val validationContext = ValidationContext()
+            val validationContext = ValidationContext("Validation has been failed.")
             validationContext.vPrice(1000, Currency.USD, allowedCurrencies)
 
             validationContext.errors shouldContain "currency type is not in allowed"

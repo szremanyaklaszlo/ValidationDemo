@@ -1,10 +1,10 @@
 package com.example.common
 
 
-class ValidationContext(val message: String = "Validation has been failed.") {
+class ValidationContext(val message: String) {
 
     private val _errors = mutableListOf<String>()
-    val errors: List<String> = _errors
+    val errors: List<String> = _errors.toList()
 
     fun add(errorMessage: String) {
         _errors.add(errorMessage)
@@ -21,7 +21,10 @@ class ValidationContext(val message: String = "Validation has been failed.") {
     }
 }
 
-inline fun validate(message: String = "Validation has been failed.", conditions: ValidationContext.() -> Unit) {
+inline fun validate(
+    message: String = "Validation has been failed.",
+    conditions: ValidationContext.() -> Unit
+) {
     val context = ValidationContext(message)
     context.conditions()
     context.throwIfAny()
