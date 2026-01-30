@@ -12,7 +12,6 @@ class BookingValidator(
 
     fun validateCreateBookingInput(input: CreateBookingInput) {
         validate("CreateBookingInput validation failed") {
-
             addIf(input.roomId.isBlank(), "roomId cannot be blank")
             addIf(input.userId.isBlank(), "userId cannot be blank")
             if (input.checkInDate > input.checkOutDate) {
