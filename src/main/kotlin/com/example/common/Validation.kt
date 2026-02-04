@@ -4,7 +4,7 @@ package com.example.common
 class ValidationContext(val message: String) {
 
     private val _errors = mutableListOf<String>()
-    val errors: List<String> = _errors.toList()
+    val errors: List<String> get() = _errors
 
     fun add(errorMessage: String) {
         _errors.add(errorMessage)
